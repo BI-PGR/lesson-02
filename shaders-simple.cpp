@@ -97,8 +97,8 @@ bool loadShaders() {
     pgr::deleteProgramAndShaders(resources.program);
 
   GLuint shaders[] = {
-    pgr::createShaderFromFile(GL_VERTEX_SHADER, "simple-vs.glsl"),
-    pgr::createShaderFromFile(GL_FRAGMENT_SHADER, "simple-fs.glsl"),
+    pgr::createShaderFromFile(GL_VERTEX_SHADER, "shd/simple.vert"),
+    pgr::createShaderFromFile(GL_FRAGMENT_SHADER, "shd/simple.frag"),
     0,
   };
   if(shaders[0] == 0 || shaders[1] == 0)
