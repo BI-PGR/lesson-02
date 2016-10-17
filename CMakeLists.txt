@@ -7,16 +7,16 @@ string(ASCII 27 Esc)
 set(RED "${Esc}[31;1m")
 set(RST "${Esc}[m")
 
-if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../pgr-framework")
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../framework")
   message(FATAL_ERROR
-  "${RED}Failed to find pgr-framework${RST}, fetch the repo using\n"
-  "\tgit clone https://github.com/bi-pgr/pgr-framework\n"
+  "${RED}Failed to find ../framework${RST}, fetch the repo using\n"
+  "\tgit clone https://github.com/bi-pgr/framework\n"
   "next to the folder containing this project.")
 endif()
 
 add_subdirectory(
-  "${CMAKE_CURRENT_SOURCE_DIR}/../pgr-framework"
-  "pgr-framework"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../framework"
+  "framework"
 )
 
 # Silence deprecated GLUT functions
