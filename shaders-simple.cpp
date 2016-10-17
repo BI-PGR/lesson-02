@@ -177,10 +177,10 @@ bool init() {
 void onKey(unsigned char key, int, int) {
   switch(key) {
     case 27:
-#ifdef __APPLE__
-      exit(0);
-#else
+#ifndef __APPLE__
       glutLeaveMainLoop();
+#else
+      exit(0);
 #endif
       break;
     case 'r':
