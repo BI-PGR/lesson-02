@@ -177,7 +177,11 @@ bool init() {
 void onKey(unsigned char key, int, int) {
   switch(key) {
     case 27:
+#ifdef __APPLE__
+      exit(0);
+#else
       glutLeaveMainLoop();
+#endif
       break;
     case 'r':
       loadShaders();
@@ -195,10 +199,14 @@ void onKey(unsigned char key, int, int) {
 int main(int argc, char* argv[]) {
   glutInit(&argc, argv);
 
+#ifndef __APPLE__
   glutInitContextVersion(pgr::OGL_VER_MAJOR, pgr::OGL_VER_MINOR);
   glutInitContextFlags(GLUT_FORWARD_COMPATIBLE);
 
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+#else
+  glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+#endif
   glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
   glutCreateWindow(WIN_TITLE);
 
